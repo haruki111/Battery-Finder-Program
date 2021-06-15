@@ -1,0 +1,158 @@
+@charset "utf-8";
+/*======================
+#mixins
+======================*/
+//マップ型変数breakpointsを定義
+$breakpoints: (
+  //キー値//767px以下（スマホ）用の表示
+  "sm": "screen and (max-width: 767px)",
+  //1024px以下768以上（タブレット）用の表示
+  "tab": "screen and (min-width: 768px) and (max-width: 1024px)",
+  //1025px以上（PC）用の表示
+  "md": "screen and (min-width: 1025px)"
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+/*======================
+  #font
+======================*/
+$font-family-default: "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro",
+  "メイリオ", "MS Pゴシック", "MS PGothic", sans-serif; // 標準フォント
+$font-family-english: sans-serif;
+/*======================
+#common -全体に共通するスタイル
+======================*/
+
+@include mq(md) {
+  .is-pc {
+    display: none;
+  }
+}
+@include mq(tab) {
+  .is-tab {
+    display: none;
+  }
+}
+@include mq(sm) {
+  .is-sm {
+    display: none;
+  }
+}
+
+body {
+  font-family: $font-family-default;
+}
+img {
+  width: 100%;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: content-box;
+  @include mq(tab) {
+    padding: 24px;
+  }
+  @include mq(sm) {
+    padding: 16px;
+  }
+}
+
+header {
+  background: #01b7ed;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px 0;
+  @include mq(sm) {
+    padding: 10px 0;
+  }
+}
+
+main {
+  background: #e5e7ea;
+  .select_brand {
+    margin-bottom: 10px;
+  }
+  .select_model {
+    margin-bottom: 10px;
+  }
+  .input_accessory {
+    margin-bottom: 10px;
+  }
+}
+
+.battery_wrap {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  @include mq(sm) {
+    display: block;
+  }
+}
+
+.battery_name {
+  @include mq(sm) {
+    padding-bottom: 10px;
+  }
+}
+
+.step_text {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.select {
+  appearance: none;
+  background: transparent
+    url(https://haniwaman.com/wp/wp-content/uploads/2018/12/form-css-arrow.png)
+    no-repeat center right 8px/16px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 30%;
+  font-weight: 700;
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: none;
+    outline: none;
+  }
+  @include mq(sm) {
+    width: 45%;
+  }
+}
+
+.number {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.4em 0.8em;
+  width: 8%;
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: none;
+    outline: none;
+  }
+  @include mq(sm) {
+    width: 20%;
+  }
+}

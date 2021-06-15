@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+/*======================
+#common -全体に共通するスタイル
+======================*/
+@media screen and (min-width: 1025px) {
+  .is-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .is-tab {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .is-sm {
+    display: none;
+  }
+}
+
+body {
+  font-family: "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "メイリオ",
+    "MS Pゴシック", "MS PGothic", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .inner {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .inner {
+    padding: 16px;
+  }
+}
+
+header {
+  background: #01b7ed;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 10px 0;
+  }
+}
+
+main {
+  background: #e5e7ea;
+}
+
+main .select_brand {
+  margin-bottom: 10px;
+}
+
+main .select_model {
+  margin-bottom: 10px;
+}
+
+main .input_accessory {
+  margin-bottom: 10px;
+}
+
+.battery_wrap {
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 767px) {
+  .battery_wrap {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .battery_name {
+    padding-bottom: 10px;
+  }
+}
+
+.step_text {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.select {
+  appearance: none;
+  background: transparent
+    url(https://haniwaman.com/wp/wp-content/uploads/2018/12/form-css-arrow.png)
+    no-repeat center right 8px/16px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 30%;
+  font-weight: 700;
+}
+
+.select:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .select {
+    width: 45%;
+  }
+}
+
+.number {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.4em 0.8em;
+  width: 8%;
+}
+
+.number:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .number {
+    width: 20%;
+  }
+}
